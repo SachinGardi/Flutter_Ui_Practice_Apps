@@ -1,4 +1,4 @@
-import 'package:e_commerce_app/prasentation/screens/onboarding_screen.dart';
+import 'package:e_commerce_app/prasentation/screens/auth/views/sign_up_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const OnBoardingScreen(),
+      home: const SignUpScreen(),
     );
   }
 }
