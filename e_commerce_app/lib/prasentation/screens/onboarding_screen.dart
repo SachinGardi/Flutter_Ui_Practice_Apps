@@ -48,6 +48,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
   @override
   void initState() {
     _pageController = PageController(initialPage: 0);
+
     super.initState();
   }
 
@@ -72,8 +73,18 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 onPageChanged: (index) {
                   setState(() {
                     _pageIndex = index;
+                    if(_pageIndex == onboardData.length - 1){
+                      Future.delayed(const Duration(seconds: 1), () {
+                        _pageController.animateToPage(
+                          0,
+                          duration: const Duration(milliseconds: 400),
+                          curve: Curves.easeInOut,
+                        );
+                      });
+                    }
                   });
                 },
+
                 itemBuilder: (context, index) =>  OnboardContent(
                   image: onboardData[index].image,
                   title: onboardData[index].title,
