@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:responsive_welcome_login_page/responsive.dart';
 
 import '../../../constants.dart';
 
@@ -17,8 +18,8 @@ class SocialIcon extends StatelessWidget {
     return GestureDetector(
       onTap: press as void Function()?,
       child: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 10),
-        padding: const EdgeInsets.all(20),
+        margin:  EdgeInsets.symmetric(horizontal: Responsive.isDesktop(context)? 10:5),
+        padding:  EdgeInsets.all(Responsive.isDesktop(context)?20:10),
         decoration: BoxDecoration(
           border: Border.all(
             width: 2,
