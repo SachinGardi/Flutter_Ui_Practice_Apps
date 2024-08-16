@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import '../constants.dart';
 import '../model/travel_spot.dart';
 import '../model/user.dart';
@@ -9,18 +10,20 @@ class PlaceCard extends StatelessWidget {
     super.key,
     required this.travelSpot,
     required this.press,
+    this.isFullCard = false,
   });
 
   final TravelSpot travelSpot;
   final GestureTapCallback press;
+  final bool isFullCard;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: getProportionateScreenWidth(137) ,
+      width: getProportionateScreenWidth(isFullCard?158:137) ,
       child: Column(
         children: [
           AspectRatio(
-            aspectRatio: 1.29,
+            aspectRatio: isFullCard?1.09:1.29,
             child: Container(
               decoration: BoxDecoration(
                   borderRadius: const BorderRadius.only(
@@ -32,7 +35,7 @@ class PlaceCard extends StatelessWidget {
             ),
           ),
           Container(
-            width: getProportionateScreenWidth(137) ,
+            width: getProportionateScreenWidth(isFullCard?158:137) ,
             padding:EdgeInsets.all(getProportionateScreenWidth(kDefaultPadding * 0.8)),
             decoration: BoxDecoration(
                 color: Colors.white,
@@ -44,10 +47,16 @@ class PlaceCard extends StatelessWidget {
             ),
             child: Column(
               children: [
-                Text(travelSpot.name,style: const TextStyle(
-                    fontSize: 11,
+                Text(travelSpot.name,
+                  textAlign: TextAlign.center,
+                  style:  TextStyle(
+                    fontSize: isFullCard?17:11,
                     fontWeight: FontWeight.w600
                 ),),
+                if(isFullCard)
+                Text(travelSpot.date.day.toString(),style: Theme.of(context).textTheme.headlineMedium!.copyWith(fontWeight: FontWeight.bold),),
+                if(isFullCard)
+                Text("${DateFormat.MMMM().format(travelSpot.date)} ${travelSpot.date.year}" ),
                 const VerticalSpacing(of: 10,),
                 Travelers(users: travelSpot.users,)
               ],
