@@ -72,8 +72,4 @@ class TSizes{
   static const double gridViewSpacing = 16.0;
   
 
-
-
-
-
 }
