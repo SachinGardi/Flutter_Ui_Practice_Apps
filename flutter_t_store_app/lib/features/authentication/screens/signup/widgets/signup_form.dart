@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_t_store_app/features/authentication/screens/signup/widgets/terms_conditions_checkbox.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import '../../../../../utils/constants/sizes.dart';
 import '../../../../../utils/constants/text_strings.dart';
-import '../../../../../utils/helpers/helper_functions.dart';
+import '../verify_email.dart';
 
 class TSignupForm extends StatelessWidget {
   const TSignupForm({super.key,});
 
   @override
   Widget build(BuildContext context) {
-    final dark = THelperFunctions.isDarkMode(context);
     return Form(child: Column(
       children: [
         ///First name Last Name
@@ -80,7 +80,9 @@ class TSignupForm extends StatelessWidget {
         SizedBox(
           width: double.infinity,
           child: ElevatedButton(
-              onPressed: (){}, child: const Text(TTexts.createAccount)),
+              onPressed: (){
+                Get.to(()=> const VerifyEmailScreen());
+              }, child: const Text(TTexts.createAccount)),
         ),
       ],
     ));
