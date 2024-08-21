@@ -11,12 +11,24 @@ import 'package:get/get.dart';
 
 
 
-class OnBoardingScreen extends StatelessWidget {
+class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({super.key});
 
   @override
+  State<OnBoardingScreen> createState() => _OnBoardingScreenState();
+}
+
+class _OnBoardingScreenState extends State<OnBoardingScreen> {
+  final controller = Get.put(OnBoardingController());
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+  @override
   Widget build(BuildContext context) {
-    final controller = Get.put(OnBoardingController());
+
     return Scaffold(
       body: Stack(
         children: [
