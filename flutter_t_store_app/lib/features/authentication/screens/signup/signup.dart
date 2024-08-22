@@ -4,7 +4,6 @@ import 'package:flutter_t_store_app/common/widgets/login_signup/social_buttons.d
 import 'package:flutter_t_store_app/features/authentication/screens/signup/widgets/signup_form.dart';
 import 'package:flutter_t_store_app/utils/constants/sizes.dart';
 import 'package:flutter_t_store_app/utils/constants/text_strings.dart';
-import 'package:flutter_t_store_app/utils/helpers/helper_functions.dart';
 import 'package:get/get.dart';
 
 class SignupScreen extends StatelessWidget {
@@ -12,7 +11,6 @@ class SignupScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final dark = THelperFunctions.isDarkMode(context);
     return Scaffold(
     appBar: AppBar(),
       body: SingleChildScrollView(
