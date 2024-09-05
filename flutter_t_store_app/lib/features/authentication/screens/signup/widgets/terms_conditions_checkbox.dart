@@ -13,6 +13,7 @@ class TTermsAndConditionCheckbox extends StatelessWidget {
   Widget build(BuildContext context) {
     final dark = THelperFunctions.isDarkMode(context);
     return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(
           height: 24,
@@ -21,22 +22,25 @@ class TTermsAndConditionCheckbox extends StatelessWidget {
             value: true, onChanged: (value) {},),
         ),
         const SizedBox(height: TSizes.spaceBtwItems,),
-        Text.rich(TextSpan(
-            children: [
-              TextSpan(text: '${TTexts.iAgreeTo} ',style: Theme.of(context).textTheme.bodySmall),
-              TextSpan(text: '${TTexts.privacyPolicy} ',style: Theme.of(context).textTheme.bodyMedium!.apply(
-                color: dark?TColors.white:TColors.primary,
-                decoration: TextDecoration.underline,
-                decorationColor: dark?TColors.white:TColors.primary,
-              )),
-              TextSpan(text: ' ${TTexts.and} ',style: Theme.of(context).textTheme.bodySmall),
-              TextSpan(text: TTexts.termsOfUse,style: Theme.of(context).textTheme.bodyMedium!.apply(
-                color: dark?TColors.white:TColors.primary,
-                decoration: TextDecoration.underline,
-                decorationColor: dark?TColors.white:TColors.primary,
-              )),
-            ]
-        ))
+        Flexible(
+          fit: FlexFit.tight,
+          child: Text.rich(TextSpan(
+              children: [
+                TextSpan(text: '${TTexts.iAgreeTo} ',style: Theme.of(context).textTheme.bodySmall),
+                TextSpan(text: '${TTexts.privacyPolicy} ',style: Theme.of(context).textTheme.bodyMedium!.apply(
+                  color: dark?TColors.white:TColors.primary,
+                  decoration: TextDecoration.underline,
+                  decorationColor: dark?TColors.white:TColors.primary,
+                )),
+                TextSpan(text: ' ${TTexts.and} ',style: Theme.of(context).textTheme.bodySmall),
+                TextSpan(text: TTexts.termsOfUse,style: Theme.of(context).textTheme.bodyMedium!.apply(
+                  color: dark?TColors.white:TColors.primary,
+                  decoration: TextDecoration.underline,
+                  decorationColor: dark?TColors.white:TColors.primary,
+                )),
+              ]
+          )),
+        )
 
       ],
     );
