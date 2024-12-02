@@ -3,6 +3,7 @@ import 'package:animations/animatedPadding.dart';
 import 'package:animations/page1.dart';
 import 'package:animations/physics_card_drag_animation.dart';
 import 'package:animations/rotationTransition.dart';
+import 'package:animations/shakeAnimation.dart';
 import 'package:animations/sizeTransition.dart';
 import 'package:animations/slideTransition.dart';
 import 'package:flutter/material.dart';
@@ -74,6 +75,7 @@ class _FlutterAnimationState extends State<FlutterAnimation> {
           buildMaterialButton(context,color: Colors.deepPurpleAccent.shade200,btnText: 'PageRouteTransition',pageName: const Page1()),
           buildMaterialButton(context,color: Colors.red.shade200,btnText: 'PhysicsCardDragSimulation',pageName: const PhysicsCardDragDemo()),
           buildMaterialButton(context,color: const Color(0xff780000),btnText: 'SpringBasedSplashScreen',pageName:  PhysicsSplashScreen()),
+          buildMaterialButton(context,color: const Color(0xff780000),btnText: 'ShakeAnimation',pageName:  const ShakeAnimationScreen()),
         ],
       ),
     );
